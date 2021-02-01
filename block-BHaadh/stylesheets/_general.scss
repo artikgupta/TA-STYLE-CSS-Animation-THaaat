@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  place-content: center;
+  height: 60vh;
+  width: 100vw;
+}
+
+.container {
+  position: relative;
+}
+
+.box {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+}
+
+.second {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+}
+
+.box-1 {
+  background: red;
+  transform: rotate(-45deg) skew(15deg, 15deg);
+}
+
+.box-2 {
+  background: green;
+  transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+}
+
+.box-3 {
+  background: blue;
+  transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+}
+
+.wrap {
+  perspective: 800px;
+  perspective-origin: 50% 100px;
+  display: grid;
+  place-content: center;
+  height: 80vh;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  transform-style: preserve-3d;
+}
+
+.cube div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px solid gray;
+}
+
+.back {
+  transform: translateZ(-100px) rotateY(180deg);
+}
+.right {
+  transform: rotateY(-270deg) translateX(100px);
+  transform-origin: top right;
+}
+.left {
+  transform: rotateY(270deg) translateX(-100px);
+  transform-origin: center left;
+}
+.top {
+  transform: rotateX(-90deg) translateY(-100px);
+  transform-origin: top center;
+}
+.bottom {
+  transform: rotateX(90deg) translateY(100px);
+  transform-origin: bottom center;
+}
+.front {
+  transform: translateZ(100px);
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.cube {
+  animation: spin 5s infinite linear;
+}
